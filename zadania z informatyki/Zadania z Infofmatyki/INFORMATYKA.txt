@@ -17,7 +17,7 @@ cena  INTEGER NOT NULL,
 
 CREATE TABLE rezerwacje(
 id INT IDENTITY PRIMARY KEY,
-nr_stolika  INTEGER NOT NULL,
+nr_stolika  INTEGER ,
 data_rez  DATE NOT NULL,
 libcza_osob  TEXT NOT NULL,
 telefon  TEXT NOT NULL,
