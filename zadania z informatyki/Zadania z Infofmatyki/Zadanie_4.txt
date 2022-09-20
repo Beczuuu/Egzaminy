@@ -1,0 +1,1 @@
+UPDATE pracownicy SET stanowsisko = 4 WHERE stanowsisko = 3

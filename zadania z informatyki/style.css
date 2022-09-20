@@ -1,0 +1,78 @@
+.ytext {
+  color: khaki;
+}
+
+#baner {
+  background-color: maroon;
+  font-weight: bold;
+  height: 50px;
+  width: auto;
+  text-align: center;
+  font-size: 30px;
+}
+
+#flex {
+  display: flex;
+  flex-direction: row;
+  background-color: bisque;
+  height: 300px;
+}
+
+#lewy {
+  width: 50%;
+}
+#prawy {
+  text-align: center;
+  width: 50%;
+  padding-top: 65px;
+  font-size: 20px;
+}
+#prawy p {
+  font-weight: bold;
+}
+
+#dolny {
+  background-color: burlywood;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  height: 300px;
+  text-align: center;
+  font-size: 15px;
+}
+
+input {
+  width: 200px;
+  margin-left: 70px;
+  display: flex;
+  align-content: center;
+}
+
+#dolny p1 {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+#btn {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+button {
+  color: khaki;
+  background-color: maroon;
+  height: 30px;
+}
+
+ol {
+  position: absolute;
+  margin-left: 275px;
+}
+
+#stopka {
+  background-color: maroon;
+  height: 50px;
+}

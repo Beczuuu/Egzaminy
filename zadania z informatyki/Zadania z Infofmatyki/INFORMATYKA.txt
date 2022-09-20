@@ -1,0 +1,31 @@
+CREATE DATABASE Restauracja2
+
+CREATE TABLE lokale(
+id INT IDENTITY PRIMARY KEY,
+nazwa  TEXT NOT NULL,
+miasto  TEXT NOT NULL,
+ulica  TEXT NOT NULL,
+numer INTEGER NOT NULL,
+)
+
+CREATE TABLE dania(
+id INT IDENTITY PRIMARY KEY,
+typ  INTEGER NOT NULL,
+nazwa  TEXT NOT NULL,
+cena  INTEGER NOT NULL,
+)
+
+CREATE TABLE rezerwacje(
+id INT IDENTITY PRIMARY KEY,
+nr_stolika  INTEGER NOT NULL,
+data_rez  DATE NOT NULL,
+libcza_osob  TEXT NOT NULL,
+telefon  TEXT NOT NULL,
+)
+
+CREATE TABLE pracownicy(
+id INT IDENTITY PRIMARY KEY,
+imie  TEXT NOT NULL,
+nazwisko  TEXT NOT NULL,
+stanowisko  INTEGER NOT NULL,
+)

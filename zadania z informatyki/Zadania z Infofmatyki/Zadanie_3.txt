@@ -1,0 +1,1 @@
+SELECT nazwa FROM dania WHERE typ = 3 and cena < 15
