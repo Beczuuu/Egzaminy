@@ -1,16 +1,14 @@
 <?php
 
+$connection = mysqli_connect('localhost:3306', 'root', '','wedkowanie');
 
-$connection = mysqli_connect('localhost:3306', 'root', '','restauracja');
 
-if($connection){
-
+if(mysqli_connect_errno()){
     echo "Połączenie nie powiodło się!<br>";
     die();
 }
 
-
-$query = "SELECT ryby.nazwa,lowisko.akwen,lowisko.wojewodztwo FROM ryby inner join `lowisko` on `ryby`.`id` = `lowisko`.`id` where `lowisko`.`rodzaj` = 3";
+$query = "SELECT Ryby.nazwa,Lowisko.akwen,Lowisko.wojewodztwo FROM Ryby inner join Lowisko on Ryby.id = Lowisko.id where Lowisko.rodzaj = 3";
 
 
 $results = mysqli_query($connection,$query);
@@ -19,14 +17,8 @@ $results = mysqli_query($connection,$query);
 $counter = mysqli_num_rows($results);
 
 
-echo "Results number: " . $counter . "<br>";
-
-
 while($row = mysqli_fetch_row($results)){
-    echo $row[0] . "-" .  $row[1] . "-" . $row[2] . "<br>";
-    
+    echo $row[0] . " pływa w rzece " .  $row[1] . "," . $row[2] . PHP_EOL;
 }
-
-// SELECT `ryby`.`nazwa`,`lowisko`.`akwen`,`lowisko`.`wojewodztwo` FROM `ryby` inner join `lowisko` on `ryby`.`id` = `lowisko`.`id` where `lowisko`.`rodzaj` = 3
 
 mysqli_close($connection);
