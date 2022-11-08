@@ -25,7 +25,7 @@
         </div>
     </div>
     <div id="footer">
-        <p>Stronę wykonał: 00000000000</p>
+        <p>Stronę wykonał: karnas</p>
     </div>
 </body>
 </html>
