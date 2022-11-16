@@ -26,36 +26,36 @@ CREATE TABLE Lowisko (
     rodzaj INTEGER NOT NULL
 );
 
--- wyświetlić wszystkie i rezerwacje jeśli istnieją
-select * from reservation_table as rt
-join restaurant as r on r.id = rt.restaurant_id
-left join reservation as rsv on rsv.reservation_table_id = rt.id;
--- wyświetlić wszystkie stoliki, które nie mają rezerwacji
-select * from reservation_table as rt
-join restaurant as r on r.id = rt.restaurant_id
-left join reservation as rsv on rsv.reservation_table_id = rt.id
-where rsv.reservation_table_id is null;
--- wyświetlić stoliki, które mają rezerwację w danej restauracji
-select * from reservation_table as rt
-join restaurant as r on r.id = rt.restaurant_id
-left join reservation as rsv on rsv.reservation_table_id = rt.id
-where r.id = 1;
--- wyświetlić wszystkich pracowników oraz ich dane dot. stanowiska i zatrudnienia w restauracjach
-select * from employee as e
-join restaurant_employee as re on re.employee_id = e.id 
-join roles as r on r.id = re.role_id
-join restaurant as rs on rs.id = re.restaurant_id;
--- wyświetlić pracowników nigdzie nie zatrudnionych
-select * from employee as e
-left join restaurant_employee as re on e.id = re.employee_id
-left join roles as r on r.id = re.role_id
-left join restaurant as rs on rs.id = re.restaurant_id
-where re.employee_id is null;
--- wyświetlić pracowników, którzy pracują w conajmniej 2 restauracjach
-select * from employee as e
-join restaurant_employee as re on re.employee_id = e.id
+-- Wyświetlić wszystkie i rezerwacje jeśli istnieją
+SELECT * FROM reservation_table AS rt
+JOIN restaurant AS r ON r.id = rt.restaurant_id
+left JOIN reservation AS rsv ON rsv.reservation_table_id = rt.id;
+-- Wyświetlić wszystkie stoliki, które nie mają rezerwacji
+SELECT * FROM reservation_table AS rt
+JOIN restaurant AS r ON r.id = rt.restaurant_id
+left JOIN reservation AS rsv ON rsv.reservation_table_id = rt.id
+WHERE rsv.reservation_table_id is null;
+-- Wyświetlić stoliki, które mają rezerwację w danej restauracji
+SELECT * FROM reservation_table AS rt
+JOIN restaurant AS r ON r.id = rt.restaurant_id
+left JOIN reservation AS rsv ON rsv.reservation_table_id = rt.id
+WHERE r.id = 1;
+-- Wyświetlić wszystkich pracowników oraz ich dane dot. stanowiska i zatrudnienia w restauracjach
+SELECT * FROM employee AS e
+JOIN restaurant_employee AS re ON re.employee_id = e.id 
+JOIN roles AS r ON r.id = re.role_id
+JOIN restaurant AS rs ON rs.id = re.restaurant_id;
+-- Wyświetlić pracowników nigdzie nie zatrudnionych
+SELECT * FROM employee AS e
+left JOIN restaurant_employee AS re ON e.id = re.employee_id
+left JOIN roles AS r ON r.id = re.role_id
+left JOIN restaurant AS rs ON rs.id = re.restaurant_id
+WHERE re.employee_id IS NULL;
+-- Wyświetlić pracowników, którzy pracują w conajmniej 2 restauracjach
+SELECT * FROM employee AS e
+JOIN restaurant_employee AS re ON re.employee_id = e.id
 group by e.id
 having count(re.restaurant_id) > 1;
--- cross join restauracji i pracowników
-select * from restaurant as res
-cross join employee as e;
+-- Cross join restauracji i pracowników
+SELECT * FROM restaurant AS res
+CROSS JOIN employee AS e;
