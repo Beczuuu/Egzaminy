@@ -1,26 +1,26 @@
 <?php
 
-$connection = mysqli_connect('localhost:3306', 'root', '','restauracja');
+//nawiązanie połączenia z bazą danych
+$connection = mysqli_connect('localhost:3306', 'root', '','baza');
 
-if($connection){
-
+//sprawdzenie poprawności połączenia z bazą danych i w przypadku błędu przerwanie programu
+if(mysqli_connect_errno()){
     echo "Połączenie nie powiodło się!<br>";
     die();
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $data = $_POST["data"];
-    $ilosc_osob =$_POST["ilosc_osob"];
-    $telefon = $_POST["telefon"];
 
-    $sql = "INSERT INTO rezerwacje (data_rez, libcza_osob, telefon) VALUES ('$data', $ilosc_osob, '$telefon')";
-    $connection->query($sql);
+     $data_rez = $_POST['data'];
+     $liczba_osob = $_POST['ilosc_osob'];
+     $telefon = $_POST['telefon'];
+    $zgoda = $_POST['zgoda'];
+     $sql = "INSERT INTO rezerwacje (data_rez,liczba_osob,telefon)
+     VALUES ('$data_rez',$liczba_osob,'$telefon')";
+     if (mysqli_query($connection, $sql)) {
+        echo "Dodano rezerwację do bazy";
+     } else {
+        echo "Bład: " . $sql . ":-" . mysqli_error($connection);
+     }
 
-    if($connection->connect_error){
-        echo "Bład rezerwacji";
-    }else{
-        echo "Zarezerwowano";
-    }
-}
-
+//zamknięcie połaczenia z bazą danych
 mysqli_close($connection);
