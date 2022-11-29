@@ -10,16 +10,16 @@
         <h1>Portal dla wędkarzy</h1>
     </div>
     <div id="main">
-        <div id="lewe">
-            <div id="lewy1">
+        <div id="left">
+            <div id="left_1">
                 <h3>Ryby zamieszkujące rzeki</h3>
             </div>
-            <div id="lewy2">
+            <div id="left_2">
                 <h3>Ryby drapieżne naszych wód</h3>
             </div>
         </div>
 
-        <div id="prawy">
+        <div id="right">
         <img src="ryba1.jpg">
         <li><a href="kwerendy.txt">Pobierz kwerendy</a></li>
         </div>
