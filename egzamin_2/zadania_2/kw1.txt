@@ -1,0 +1,1 @@
+SELECT id , nazwa , wystepowanie from ryby where styl_zycia = 1;
